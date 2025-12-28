@@ -7,6 +7,36 @@ import SpotifyArtistButton from "@/components/spotify-redirect/spotify-redirect"
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  function scrollToSection(section: string) {
+    const sectionElement = document.getElementById(section);
+    
+    if (sectionElement) {
+      const targetPosition = sectionElement.offsetTop;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 1200; 
+      let start: number | null = null;
+
+      function animation(currentTime: number) {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      }
+
+      function ease(t: number, b: number, c: number, d: number) {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+      }
+
+      requestAnimationFrame(animation);
+      setMenuOpen(false);
+    }
+  }
+
   return (
     <header className="header">
       <Logo className="logo" />
@@ -21,7 +51,7 @@ export function Header() {
       </button>
 
       <nav className={`nav ${menuOpen ? "open" : ""}`}>
-        <button className="nav-link">Quem Somos</button>
+        <button className="nav-link" onClick={() => scrollToSection('sobre-nos')}>Quem Somos</button>
         <button className="nav-link">Música Para Eventos</button>
         <button className="nav-link">Vídeos</button>
         <button className="nav-link">Shows Especiais</button>

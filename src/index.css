@@ -2,6 +2,19 @@
   box-sizing: border-box;
 }
 
+/* Text color variables: light (black) and dark (white) */
+:root {
+  --text-color: #000000;
+  --background-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #ffffff;
+    --background-color: #2d2d30;
+  }
+}
+
 html,
 body {
   margin: 0;
@@ -12,6 +25,7 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  color: var(--text-color);
 }
 
 a {

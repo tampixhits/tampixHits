@@ -1,10 +1,10 @@
 import "./overview.css";
-import image from "@/assets/imgs/PlaceholderLC.png";
+import image from "@/assets/imgs/guitar-classical-guitar-acoustic-guitar-electric-guitar.webp";
 import WhatsAppButton from "../whatsapp-button/whatsapp-button";
 
 export function Overview() {
   return (
-    <div className="wrapper">
+    <div className="wrapper-overview">
       <div className="text-overview">
         <h1>Levamos Música ao Vivo para o seu evento social ou corporativo</h1>
         <p>

@@ -15,3 +15,10 @@
 .whatsapp-button:hover {
   background-color: var(--active-color, #0d80bf);
 }
+
+@media (prefers-color-scheme: dark) {
+  .whatsapp-button {
+    background-color: white;
+    color: black;
+  }
+}

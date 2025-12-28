@@ -4,6 +4,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import "./sobre-nos.css";
 
 interface SobreNosData {
+  titulo: string;
   descricao: string;
   poster: {
     asset: {
@@ -44,13 +45,17 @@ export function SobreNos() {
   const imageUrl = data.poster ? imageBuilder.image(data.poster).url() : null;
 
   return (
-    <div className="wrapper">
-      {imageUrl && <img src={imageUrl} alt="Sobre Nós" className="image" />}
+    <section id="sobre-nos" className="sobre-nos">
+      <div className="sobre-nos__wrapper">
+        {imageUrl && (
+          <img src={imageUrl} alt="Sobre Nós" className="sobre-nos__image" />
+        )}
 
-      <div className="text-sobre-nos">
-        <h1>Sobre Nós</h1>
-        <p>{data.descricao}</p>
+        <div className="sobre-nos__text">
+          <h1>{data.titulo}</h1>
+          <p>{data.descricao}</p>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
