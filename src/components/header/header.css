@@ -1,0 +1,216 @@
+/* =========================
+   HEADER BASE (DESKTOP)
+========================= */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 5rem;
+  gap: 2rem;
+  background: white;
+}
+
+/* LOGO */
+.logo {
+  width: clamp(120px, 15vw, 200px);
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* =========================
+   MENU TOGGLE (HAMBURGER)
+========================= */
+
+.menu-toggle {
+  display: none !important;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* =========================
+   NAVIGATION (DESKTOP)
+========================= */
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  transform: none;
+
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 1.25rem;
+  color: var(--text-color, #333);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--active-color, #0D80BF);
+}
+
+.nav-link:focus-visible {
+  outline: none;
+  text-decoration: underline;
+}
+
+/* =========================
+   CONTACT AREA
+========================= */
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.budget {
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  background-color: #242424;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* <- fix */
+
+}
+
+.budget:hover{
+    background-color: var(--active-color, #0D80BF);
+
+}
+
+.social-media {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-media-logo {
+  width: clamp(20px, 4vw, 28px);
+  height: auto;
+  flex-shrink: 0;
+  color: var(--text-color, #333);
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-media-logo:hover {
+  color: var(--active-color, #0D80BF);
+}
+
+/* =========================
+   TABLET (links quebram linha)
+========================= */
+
+@media (max-width: 1024px) {
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 0.75rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .budget {
+    font-size: 1rem;
+  }
+}
+
+/* =========================
+   MOBILE (menu overlay top-down)
+========================= */
+
+@media (max-width: 768px) {
+  .header {
+    position: relative;
+    z-index: 1000;
+    background: white;
+    padding: 1rem;
+  }
+
+  .menu-toggle {
+    display: block !important;
+    z-index: 1001;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+    background: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 2rem;
+    gap: 1.5rem;
+    transform-origin: top;
+    transform: scaleY(0);
+
+    overflow: hidden;
+    pointer-events: none;
+
+    transition: transform 0.35s ease, opacity 0.25s ease;
+  }
+
+  .nav.open {
+    transform: scaleY(1);
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .nav-link {
+    width: 100%;
+    font-size: 1.15rem;
+    text-align: left;
+  }
+
+  .contact {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #f0f0f0;
+    --active-color: #0D80BF;
+    --background-color: #242424;
+  }
+
+  .logo {
+    color: white;
+  }
+
+  .header {
+    background: var(--background-color);
+  }
+
+  .nav {
+    background: var(--background-color);
+  }
+
+  .menu-toggle{
+    color: white;
+  }
+
+  .budget{
+    background-color: white;
+    color: #242424;
+  }
+}
