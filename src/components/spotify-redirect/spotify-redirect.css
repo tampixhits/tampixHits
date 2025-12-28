@@ -1,0 +1,100 @@
+.spotify-button-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.social-media-logo {
+  width: clamp(20px, 4vw, 28px);
+  height: auto;
+  flex-shrink: 0;
+  color: var(--text-color, #333);
+  transition: color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.social-media-logo:hover {
+  color: var(--active-color, #0D80BF);
+}
+
+.spotify-toast {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #242424;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 150px;
+  z-index: 1000;
+  animation: slideDown 0.2s ease;
+}
+
+.spotify-toast::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid black;
+}
+
+.toast-option {
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+  border-radius: 4px;
+  color: white;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.toast-option:hover {
+    color: var(--active-color, #0D80BF);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .spotify-toast{
+    background: white;
+    color: black;
+  }
+
+  .toast-option{
+    color: black
+  }
+
+  .spotify-toast::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid white;
+}
+}
