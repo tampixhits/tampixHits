@@ -4,3 +4,4 @@ export { default as Instagram } from './instagram.svg?react';
 export { default as Youtube } from './youtube.svg?react';
 export { default as X } from './x.svg?react';
 export { default as Spotify } from './spotify.svg?react';
+export { default as Whatsapp } from './whatsapp.svg?react';

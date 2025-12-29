@@ -16,6 +16,30 @@
   background-color: var(--active-color, #0d80bf);
 }
 
+/* Icon-only variant */
+.whatsapp-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.whatsapp-icon__svg {
+  width: clamp(20px, 4vw, 28px);
+  height: auto;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.whatsapp-icon:hover .whatsapp-icon__svg {
+  color: var(--active-color, #0d80bf);
+  transform: translateY(-1px);
+}
+
 @media (prefers-color-scheme: dark) {
   .whatsapp-button {
     background-color: white;

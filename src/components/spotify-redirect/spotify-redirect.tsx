@@ -2,7 +2,11 @@ import { useState, useRef, useEffect } from "react";
 import "./spotify-redirect.css";
 import { Spotify } from "@/assets/logos";
 
-const SpotifyArtistButton = () => {
+interface SpotifyArtistButtonProps {
+  location?: "header" | "footer"; // controls toast direction
+}
+
+const SpotifyArtistButton = ({ location = "header" }: SpotifyArtistButtonProps) => {
   const [showToast, setShowToast] = useState(false);
   const toastRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<SVGSVGElement>(null);
@@ -54,7 +58,10 @@ const SpotifyArtistButton = () => {
         onClick={handleSpotifyClick}
       />
       {showToast && (
-        <div ref={toastRef} className="spotify-toast">
+        <div
+          ref={toastRef}
+          className={`spotify-toast ${location === "footer" ? "spotify-toast--up" : "spotify-toast--down"}`}
+        >
           <button onClick={openInApp} className="toast-option">
             Abrir no App
           </button>

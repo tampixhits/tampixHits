@@ -1,7 +1,6 @@
 import "./header.css";
-import { Logo, Facebook, Instagram, Youtube, X } from "@/assets/logos";
+import { Logo, Facebook, Instagram, Youtube } from "@/assets/logos";
 import { useState } from "react";
-import "@/components/spotify-redirect/spotify-redirect"
 import SpotifyArtistButton from "@/components/spotify-redirect/spotify-redirect";
 
 export function Header() {
@@ -61,10 +60,9 @@ export function Header() {
       <div className="contact">
         <button className="budget">Faça um orçamento</button>
         <div className="social-media">
-          <Facebook className="social-media-logo"  onClick={() => window.open("https://www.facebook.com/guilhermeandreatta.musico/videos/clique-aqui-para-iniciar-o-atendimento/849864734167693/")}/>
-          <Instagram className="social-media-logo"  onClick={() => window.open("https://www.instagram.com/tampixhits/")}/>
-          <Youtube className="social-media-logo"  onClick={() => window.open("https://www.youtube.com/@guiandreatta")}/>
-          {/* <X className="social-media-logo" /> */}
+          <Facebook className="social-media-logo" onClick={() => window.open("https://www.facebook.com/guilhermeandreatta.musico/videos/clique-aqui-para-iniciar-o-atendimento/849864734167693/")}/>
+          <Instagram className="social-media-logo" onClick={() => window.open("https://www.instagram.com/tampixhits/")}/>
+          <Youtube className="social-media-logo" onClick={() => window.open("https://www.youtube.com/@guiandreatta")}/>
           <SpotifyArtistButton/>
         </div>
       </div>

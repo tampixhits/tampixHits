@@ -1,8 +1,4 @@
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-}
+
 .sobre-nos__wrapper {
   display: flex;
   flex-direction: row;
@@ -26,13 +22,20 @@
   mask-size: 100% 100%;
 }
 
+.sobre-nos__text {
+  padding: 5px;
+  max-width: 40rem;
+  white-space: pre-wrap;
+}
+
 @media (max-width: 1024px) {
-  .wrapper {
+  .sobre-nos__wrapper {
     flex-direction: column;
   }
-  .text-sobre-nos {
+  .sobre-nos__text {
     order: 1;
     padding: 0 2rem;
+    max-width: none;
   }
   /* Mobile: top/bottom fade */
   .sobre-nos__image {

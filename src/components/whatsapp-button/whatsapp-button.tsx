@@ -1,13 +1,22 @@
 import React from 'react';
 import "./whatsapp-button.css";
+import { Whatsapp } from "@/assets/logos";
 
 interface WhatsAppButtonProps {
   phoneNumber: string;
   message: string;
   children?: React.ReactNode;
+  variant?: "button" | "icon";
+  ariaLabel?: string;
 }
 
-const WhatsAppButton = ({ phoneNumber, message, children }: WhatsAppButtonProps) => {
+const WhatsAppButton = ({
+  phoneNumber,
+  message,
+  children,
+  variant = "button",
+  ariaLabel = "Fale agora por Whatsapp",
+}: WhatsAppButtonProps) => {
   const cleanPhone = phoneNumber.replace(/\D/g, '');
   
   const encodedMessage = encodeURIComponent(message);
@@ -15,13 +24,19 @@ const WhatsAppButton = ({ phoneNumber, message, children }: WhatsAppButtonProps)
   const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodedMessage}`;
   
   return (
-    <a 
+    <a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="whatsapp-button"
+      className={variant === "icon" ? "whatsapp-icon" : "whatsapp-button"}
+      aria-label={ariaLabel}
+      title={ariaLabel}
     >
-      {children || 'Fale agora por Whatsapp'}
+      {variant === "icon" ? (
+        <Whatsapp className="whatsapp-icon__svg" />
+      ) : (
+        children || "Fale agora por Whatsapp"
+      )}
     </a>
   );
 };

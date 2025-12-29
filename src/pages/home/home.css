@@ -1,9 +1,4 @@
-.home{
-    background-color: var(--background-color);
-}
-
-@media (prefers-color-scheme: dark) {
-  .home{
-    background-color: var(--background-color);
-  }
+.home {
+  background-color: var(--background-color);
+  padding-bottom: 2rem;
 }
