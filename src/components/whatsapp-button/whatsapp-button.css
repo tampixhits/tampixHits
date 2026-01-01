@@ -1,5 +1,5 @@
 .whatsapp-button {
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 5px;
   border: none;
   margin-bottom: 0.75rem;
@@ -33,6 +33,7 @@
   width: clamp(20px, 4vw, 28px);
   height: auto;
   transition: color 0.3s ease, transform 0.2s ease;
+  margin-right: 1rem;
 }
 
 .whatsapp-icon:hover .whatsapp-icon__svg {

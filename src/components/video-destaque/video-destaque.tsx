@@ -40,6 +40,7 @@ export function VideoDestaque() {
           `*[_type == "videoDestaque"][0]`
         );
         setData(result);
+        console.log("Fetched video destaque data:", result);
       } catch (error) {
         console.error("Error fetching video destaque data:", error);
       } finally {
@@ -67,7 +68,7 @@ export function VideoDestaque() {
   return (
     <section id="video-destaque" className="video-destaque">
       <div className="video-destaque__container">
-        <h2>{data.titulo}</h2>
+        <h1>{data.titulo}</h1>
         <div className="video-destaque__wrapper">
           <iframe
             src={`https://www.youtube.com/embed/${videoId}`}

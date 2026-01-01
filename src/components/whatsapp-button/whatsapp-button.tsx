@@ -33,7 +33,10 @@ const WhatsAppButton = ({
       title={ariaLabel}
     >
       {variant === "icon" ? (
-        <Whatsapp className="whatsapp-icon__svg" />
+        <>
+          <Whatsapp className="whatsapp-icon__svg" />
+          {children}
+        </>
       ) : (
         children || "Fale agora por Whatsapp"
       )}

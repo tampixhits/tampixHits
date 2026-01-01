@@ -21,11 +21,9 @@
   mask-repeat: no-repeat;
   mask-size: 100% 100%;
 }
-
 .sobre-nos__text {
   padding: 5px;
   max-width: 40rem;
-  white-space: pre-wrap;
 }
 
 @media (max-width: 1024px) {
@@ -36,8 +34,9 @@
     order: 1;
     padding: 0 2rem;
     max-width: none;
+    text-align: justify;
   }
-  /* Mobile: top/bottom fade */
+
   .sobre-nos__image {
     width: 100%;
     height: auto;

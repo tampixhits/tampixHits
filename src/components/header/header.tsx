@@ -1,7 +1,6 @@
 import "./header.css";
-import { Logo, Facebook, Instagram, Youtube } from "@/assets/logos";
+import { Logo, Facebook, Instagram, Youtube, Spotify } from "@/assets/logos";
 import { useState } from "react";
-import SpotifyArtistButton from "@/components/spotify-redirect/spotify-redirect";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,7 +9,10 @@ export function Header() {
     const sectionElement = document.getElementById(section);
     
     if (sectionElement) {
-      const targetPosition = sectionElement.offsetTop;
+      const isMobile = window.innerWidth <= 768;
+      const header = isMobile ? (document.querySelector(".header") as HTMLElement) : null;
+      const headerHeight = header ? header.offsetHeight : 0;
+      const targetPosition = sectionElement.offsetTop - headerHeight;
       const startPosition = window.pageYOffset;
       const distance = targetPosition - startPosition;
       const duration = 1200; 
@@ -51,7 +53,7 @@ export function Header() {
 
       <nav className={`nav ${menuOpen ? "open" : ""}`}>
         <button className="nav-link" onClick={() => scrollToSection('sobre-nos')}>Quem Somos</button>
-        <button className="nav-link">Música Para Eventos</button>
+        <button className="nav-link" onClick={() => scrollToSection('eventos')}>Música Para Eventos</button>
         <button className="nav-link">Vídeos</button>
         <button className="nav-link">Shows Especiais</button>
         <button className="nav-link">Som, Luz e DJ</button>
@@ -63,7 +65,7 @@ export function Header() {
           <Facebook className="social-media-logo" onClick={() => window.open("https://www.facebook.com/guilhermeandreatta.musico/videos/clique-aqui-para-iniciar-o-atendimento/849864734167693/")}/>
           <Instagram className="social-media-logo" onClick={() => window.open("https://www.instagram.com/tampixhits/")}/>
           <Youtube className="social-media-logo" onClick={() => window.open("https://www.youtube.com/@guiandreatta")}/>
-          <SpotifyArtistButton/>
+          <Spotify className="social-media-logo" onClick={() => window.open("https://open.spotify.com/artist/1uvgjDX1AAuConmn2zvdcO?si=90OZblWDTSWSBeYluttF6w&nd=1&dlsi=5ef9c7f152a84eca")}/>
         </div>
       </div>
     </header>

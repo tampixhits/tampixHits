@@ -1,59 +1,20 @@
-import { useEffect, useState } from "react";
-import { sanityClient } from "@/sanityClient";
-import imageUrlBuilder from "@sanity/image-url";
 import "./sobre-nos.css";
-
-interface SobreNosData {
-  titulo: string;
-  descricao: string;
-  poster: {
-    asset: {
-      _id: string;
-    };
-  };
-}
-
-const imageBuilder = imageUrlBuilder(sanityClient);
+import image from "@/assets/imgs/guitar-classical-guitar-acoustic-guitar-electric-guitar.webp";
 
 export function SobreNos() {
-  const [data, setData] = useState<SobreNosData | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchSobreNos = async () => {
-      try {
-        const result = await sanityClient.fetch(`*[_type == "sobreNos"][0]`);
-        setData(result);
-      } catch (error) {
-        console.error("Error fetching sobre nos data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchSobreNos();
-  }, []);
-
-  if (loading) {
-    return <div>Carregando...</div>;
-  }
-
-  if (!data) {
-    return <div>Dados não encontrados</div>;
-  }
-
-  const imageUrl = data.poster ? imageBuilder.image(data.poster).url() : null;
-
   return (
     <section id="sobre-nos" className="sobre-nos">
       <div className="sobre-nos__wrapper">
-        {imageUrl && (
-          <img src={imageUrl} alt="Sobre Nós" className="sobre-nos__image" />
-        )}
+        <img src={image} alt="Sobre Nós" className="sobre-nos__image" />
 
         <div className="sobre-nos__text">
-          <h1>{data.titulo}</h1>
-          <p>{data.descricao}</p>
+          <h1>Quem Somos</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            <br />
+            <br />
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
       </div>
     </section>

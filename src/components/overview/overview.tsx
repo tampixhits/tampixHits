@@ -7,7 +7,7 @@ export function Overview() {
     <div className="wrapper-overview">
       <div className="text-overview">
         <h1>Levamos Música ao Vivo para o seu evento social ou corporativo</h1>
-        <p>
+        <p className="paragraph-text">
           Voz e Violão, Banda, Quarteto de Cordas, Violino, Saxofone, Sax Live,
           Quarteto Vocal, Som, Luz, DJ e muito mais!
         </p>
