@@ -91,6 +91,10 @@
   color: var(--active-color, #0D80BF);
 }
 
+.nav-contact {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .nav {
     flex-wrap: wrap;
@@ -154,6 +158,33 @@
     width: 100%;
     font-size: 1.15rem;
     text-align: left;
+  }
+
+  .nav-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+  }
+
+  .nav-contact .budget {
+    width: fit-content;
+  }
+
+  .nav-contact .social-media {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .nav-contact .social-media-logo {
+    width: 40px;
+    height: 40px;
   }
 
   .contact {
