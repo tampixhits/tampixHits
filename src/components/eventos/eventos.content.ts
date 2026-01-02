@@ -78,7 +78,7 @@ export const eventosContent: Record<Language, EventosContent> = {
         'Whether it is a company anniversary, year-end party, promotional action, congress, or trade show. We are ready to meet any type of musical demand, with a repertoire specific to each situation.',
       paragraph2:
         'We have worked with companies such as: Yara Brasil, Agrofel, Hotel Deville, Unisinos, Tornak, Shopping Prais de Belas, Viva Open Mall, Famurs, Grupo RBS Hotel Embaixador, Veleiros do Sul, Colégio Rosário, Association of Attorneys of the State of RS, Sicredi, Fundmed, Credita, Verdes Vales, and others.',
-      buttonText: 'Request a budget',
+      buttonText: 'Request a Quote',
       whatsappMessage: 'Hello, I would like to know more about music services for corporate events.',
       imageAlt: 'Corporate',
     },
@@ -86,7 +86,7 @@ export const eventosContent: Record<Language, EventosContent> = {
       title: 'Private Events',
       paragraph1: 'Celebrating your birthday at home with friends or throwing a party at the condominium?',
       paragraph2: 'We have the perfect musical formations for this type of occasion with sound and lighting included.',
-      buttonText: 'Request a budget',
+      buttonText: 'Request a Quote',
       whatsappMessage: 'Hello, I would like to know more about music services for private events.',
       imageAlt: 'Private Event',
     },

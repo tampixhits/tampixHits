@@ -33,6 +33,6 @@ export const headerContent: Record<Language, HeaderContent> = {
       shows: "Special Shows",
       som: "Sound, Light and DJ",
     },
-    budget: "Request a budget",
+    budget: "Request a Quote",
   },
 };

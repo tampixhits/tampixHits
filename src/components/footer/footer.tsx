@@ -14,10 +14,25 @@ export function Footer() {
   const content = footerContent[getSystemLanguage()];
 
   const copyText = async (textToCopy: string) => {
+    let usedFallback = false;
     try {
-      await navigator.clipboard.writeText(textToCopy);
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 2000);
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(textToCopy);
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 2000);
+      } else {
+        usedFallback = true;
+        const textArea = document.createElement('textarea');
+        textArea.value = textToCopy;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        textArea.remove();
+      }
     } catch (err) {
       console.error('Failed to copy text: ', err);
     }

@@ -21,7 +21,7 @@ export const overviewContent: Record<Language, OverviewContent> = {
     title: 'We Bring Live Music to Your Social or Corporate Event',
     description:
       'Voice and Guitar, Band, String Quartet, Violin, Saxophone, Sax Live, Vocal Quartet, Sound, Light, DJ and much more!',
-    buttonText: 'Request a budget',
+    buttonText: 'Request a Quote',
     whatsappMessage: 'Hello, I would like to know more about live music services.',
     imageAlt: 'Classical, acoustic and electric guitar',
   },

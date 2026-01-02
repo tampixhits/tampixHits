@@ -62,12 +62,11 @@ export function Header() {
         <button className="nav-link" onClick={() => scrollToSection('sobre-nos')}>{content.navLinks.quemSomos}</button>
         <button className="nav-link" onClick={() => scrollToSection('eventos')}>{content.navLinks.musica}</button>
         <button className="nav-link" onClick={() => scrollToSection('videos')}>{content.navLinks.videos}</button>
-        {/* <button className="nav-link">{content.navLinks.shows}</button> */}
         <button className="nav-link" onClick={() => scrollToSection('som-luz')}>{content.navLinks.som}</button>
       </nav>
 
       <div className="contact">
-        <button className="budget">{content.budget}</button>
+        <button className="budget" onClick={() => scrollToSection('quote')}>{content.budget}</button>
         <div className="social-media">
           <Facebook className="social-media-logo" onClick={() => window.open("https://www.facebook.com/guilhermeandreatta.musico/videos/clique-aqui-para-iniciar-o-atendimento/849864734167693/")}/>
           <Instagram className="social-media-logo" onClick={() => window.open("https://www.instagram.com/tampixhits/")}/>

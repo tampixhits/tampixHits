@@ -14,6 +14,12 @@ interface FormsEmailContent {
   phonePlaceholder: string;
   // Step 2 fields
   eventType: string;
+  eventTypeOptions: {
+    private: string;
+    corporate: string;
+    wedding: string;
+    other: string;
+  };
   eventLocation: string;
   eventLocationPlaceholder: string;
   eventDate: string;
@@ -47,8 +53,14 @@ export const formsEmailContent: Record<Language, FormsEmailContent> = {
     email: 'Email',
     emailPlaceholder: 'seu@email.com',
     phone: 'Telefone',
-    phonePlaceholder: '(41) 9 9290-9011',
+    phonePlaceholder: '(46) 9 9290-9011',
     eventType: 'Tipo de evento',
+    eventTypeOptions: {
+      private: 'Privado',
+      corporate: 'Corporativo',
+      wedding: 'Casamento',
+      other: 'Outro',
+    },
     eventLocation: 'Local do Evento',
     eventLocationPlaceholder: 'Digite o local',
     eventDate: 'Data do Evento',
@@ -68,9 +80,9 @@ export const formsEmailContent: Record<Language, FormsEmailContent> = {
     errorMessage: 'Erro ao enviar. Tente novamente mais tarde.',
   },
   en: {
-    title: 'Request a Budget',
+    title: 'Request a Quote',
     description:
-      'Fill in the information below and we will send you a personalized budget.',
+      'Fill in the information below and we will send you a personalized quote.',
     name: 'Name',
     namePlaceholder: 'Your full name',
     instagram: 'Instagram',
@@ -78,8 +90,14 @@ export const formsEmailContent: Record<Language, FormsEmailContent> = {
     email: 'Email',
     emailPlaceholder: 'your@email.com',
     phone: 'Phone',
-    phonePlaceholder: '(41) 9 9290-9011',
+    phonePlaceholder: '(46) 9 9290-9011',
     eventType: 'Event Type',
+    eventTypeOptions: {
+      private: 'Private',
+      corporate: 'Corporate',
+      wedding: 'Wedding',
+      other: 'Other',
+    },
     eventLocation: 'Event Location',
     eventLocationPlaceholder: 'Enter the location',
     eventDate: 'Event Date',

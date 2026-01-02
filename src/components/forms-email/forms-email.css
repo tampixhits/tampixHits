@@ -124,7 +124,6 @@
 .forms-email__field select.error,
 .forms-email__field textarea.error {
   border-color: #e74c3c;
-  background-color: #fadbd8;
 }
 
 .forms-email__field input.error:focus,
