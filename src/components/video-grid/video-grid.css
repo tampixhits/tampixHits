@@ -70,6 +70,7 @@
 
   .video-grid__container {
     flex-direction: column;
+    align-items: center;
     gap: 0rem;
   }
 
