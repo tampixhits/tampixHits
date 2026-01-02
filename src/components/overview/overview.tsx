@@ -11,10 +11,10 @@ const getSystemLanguage = (): 'pt' | 'en' => {
 export function Overview() {
   const content = overviewContent[getSystemLanguage()];
   return (
-    <div className="wrapper-overview">
-      <div className="text-overview">
+    <div className="overview__wrapper">
+      <div className="overview__text">
         <h1>{content.title}</h1>
-        <p className="paragraph-text">
+        <p className="overview__description">
           {content.description}
         </p>
         <WhatsAppButton phoneNumber="+5541992909011" message={content.whatsappMessage}>
@@ -22,7 +22,7 @@ export function Overview() {
         </WhatsAppButton>
       </div>
 
-      <img src={image} alt={content.imageAlt} className="image" />
+      <img src={image} alt={content.imageAlt} className="overview__image" />
     </div>
   );
 }

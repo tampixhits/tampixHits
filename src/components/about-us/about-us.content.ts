@@ -1,12 +1,12 @@
 export type Language = 'pt' | 'en';
 
-interface SobreNosContent {
+interface AboutUsContent {
   title: string;
   imageAlt: string;
     description: string;
 }
 
-export const sobreNosContent: Record<Language, SobreNosContent> = {
+export const aboutUsContent: Record<Language, AboutUsContent> = {
   pt: {
     title: 'Quem Somos',
     imageAlt: 'Sobre Nós',

@@ -1,21 +1,21 @@
 import "./home.css";
 import { Overview } from "@/components/overview/overview";
-import { SobreNos } from "@/components/sobre-nos/sobre-nos";
-import { VideoDestaque } from "@/components/video-destaque/video-destaque";
-import { Eventos } from "@/components/eventos/eventos";
+import { AboutUs } from "@/components/about-us/about-us";
+import { FeaturedVideo } from "@/components/featured-video/featured-video";
+import { Events } from "@/components/events/events";
 import { VideoGrid } from "@/components/video-grid/video-grid";
-import { SomLuz } from "@/components/som-luz/som-luz";
+import { SoundLight } from "@/components/sound-light/sound-light";
 import { FormsEmail } from "@/components/forms-email/forms-email";
 
 export function Home() {
   return (
     <section className="home">
       <Overview />
-      <SobreNos />
-      <VideoDestaque />
-      <Eventos />
+      <AboutUs />
+      <FeaturedVideo />
+      <Events />
       <VideoGrid />
-      <SomLuz />
+      <SoundLight />
       <FormsEmail />
     </section>
   );

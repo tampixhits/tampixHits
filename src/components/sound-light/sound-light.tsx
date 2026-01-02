@@ -1,21 +1,21 @@
-import "./som-luz.css";
+import "./sound-light.css";
 import image from "@/assets/imgs/dj.jpg";
 import WhatsAppButton from "../whatsapp-button/whatsapp-button";
-import { somLuzContent } from "./som-luz.content";
+import { soundLightContent } from "./sound-light.content";
 
 const getSystemLanguage = (): "pt" | "en" => {
   const language = navigator.language.toLowerCase();
   return language.startsWith("pt") ? "pt" : "en";
 };
 
-export function SomLuz() {
-  const content = somLuzContent[getSystemLanguage()];
+export function SoundLight() {
+  const content = soundLightContent[getSystemLanguage()];
   return (
-    <section id="som-luz">
-      <div className="wrapper-som-luz">
-        <div className="text-som-luz">
+    <section id="sound-light">
+      <div className="sound-light__wrapper">
+        <div className="sound-light__text">
           <h1>{content.title}</h1>
-          <p className="paragraph-text">{content.description}</p>
+          <p className="sound-light__description">{content.description}</p>
           <WhatsAppButton
             phoneNumber="+5541992909011"
             message={content.whatsappMessage}
@@ -24,7 +24,7 @@ export function SomLuz() {
           </WhatsAppButton>
         </div>
 
-        <img src={image} alt={content.imageAlt} className="image-som-luz" />
+        <img src={image} alt={content.imageAlt} className="sound-light__image" />
       </div>
     </section>
   );

@@ -1,15 +1,42 @@
-
-.sobre-nos__wrapper {
+.sound-light__wrapper {
   display: flex;
   flex-direction: row;
-  align-items: start;
+  align-items: center;
+  padding: 0;
+  position: relative;
+  justify-content: flex-end;
 }
 
-.sobre-nos__image {
+.sound-light__description {
+  margin-top: 0;
+}
+
+.sound-light__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  padding: 2rem;
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  width: 40rem;
+  transform: translateX(-90%);
+}
+
+.sound-light__text h1,
+.sound-light__text p {
+  text-align: justify;
+}
+
+.sound-light__image {
   width: 50rem;
   height: auto;
+  position: relative;
+  z-index: 1;
   -webkit-mask-image: linear-gradient(
-    to left,
+    to right,
     transparent 0%,
     rgba(0, 0, 0, 0.3) 15%,
     rgba(0, 0, 0, 0.7) 25%,
@@ -19,7 +46,7 @@
   -webkit-mask-size: 100% 100%;
 
   mask-image: linear-gradient(
-    to left,
+    to right,
     transparent 0%,
     rgba(0, 0, 0, 0.3) 15%,
     rgba(0, 0, 0, 0.7) 25%,
@@ -28,26 +55,35 @@
   mask-repeat: no-repeat;
   mask-size: 100% 100%;
 }
-.sobre-nos__text {
-  padding: 5px;
-  max-width: 40rem;
-}
 
 @media (max-width: 1024px) {
-  .sobre-nos__wrapper {
+  .sound-light__wrapper {
     flex-direction: column;
-  }
-  .sobre-nos__text {
-    order: 1;
-    padding: 0 2rem;
-    max-width: none;
-    text-align: justify;
+    padding: 0rem;
+    align-items: center;
+    justify-content: center;
   }
 
-  .sobre-nos__image {
+  .sound-light__text {
+    order: 1;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    left: auto;
+    transform: none;
+    padding: 0 2rem;
+    max-width: 100%;
+  }
+
+  .sound-light__text h1,
+  .sound-light__text p {
+    text-align: center;
+  }
+
+  .sound-light__image {
+    order: 2;
     width: 100%;
     height: auto;
-    order: 2;
     -webkit-mask-image: linear-gradient(
       to top,
       rgba(0, 0, 0, 0.6) 60%,
@@ -65,11 +101,5 @@
     );
     mask-repeat: no-repeat;
     mask-size: 100% 100%;
-  }
-  .sobre-nos__wrapper {
-    flex-direction: column;
-  }
-  .sobre-nos__text {
-    padding: 0 2rem;
   }
 }

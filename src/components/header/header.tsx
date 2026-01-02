@@ -59,10 +59,10 @@ export function Header() {
       </button>
 
       <nav className={`nav ${menuOpen ? "open" : ""}`}>
-        <button className="nav-link" onClick={() => scrollToSection('sobre-nos')}>{content.navLinks.quemSomos}</button>
-        <button className="nav-link" onClick={() => scrollToSection('eventos')}>{content.navLinks.musica}</button>
+        <button className="nav-link" onClick={() => scrollToSection('about-us')}>{content.navLinks.aboutUs}</button>
+        <button className="nav-link" onClick={() => scrollToSection('events')}>{content.navLinks.musicForEvents}</button>
         <button className="nav-link" onClick={() => scrollToSection('videos')}>{content.navLinks.videos}</button>
-        <button className="nav-link" onClick={() => scrollToSection('som-luz')}>{content.navLinks.som}</button>
+        <button className="nav-link" onClick={() => scrollToSection('sound-light')}>{content.navLinks.soundLightDj}</button>
         
         <div className="nav-contact">
           <button className="budget" onClick={() => scrollToSection('quote')}>{content.budget}</button>
