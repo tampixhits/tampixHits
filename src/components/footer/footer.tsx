@@ -2,9 +2,16 @@ import "./footer.css";
 import WhatsAppButton from "../whatsapp-button/whatsapp-button";
 import { Facebook, Instagram, Logo, Youtube, Spotify } from "@/assets/logos";
 import { useState } from "react";
+import { footerContent } from "./footer.content";
+
+const getSystemLanguage = (): 'pt' | 'en' => {
+  const language = navigator.language.toLowerCase();
+  return language.startsWith('pt') ? 'pt' : 'en';
+};
 
 export function Footer() {
   const [showToast, setShowToast] = useState(false);
+  const content = footerContent[getSystemLanguage()];
 
   const copyText = async (textToCopy: string) => {
     try {
@@ -22,20 +29,20 @@ export function Footer() {
       <div  className="footer__wrapper">
         <div className="footer__section footer__section--left">
           <div className="footer__contacts">
-            Guilherme Andreatta <br />
+            {content.name} <br />
             <button 
-              onClick={() => copyText("guilhermeandreatta@hotmail.com")}
+              onClick={() => copyText(content.email)}
               className="email-button"
             >
-              guilhermeandreatta@hotmail.com
+              {content.email}
             </button>
             <div className="contact__whats">
               <WhatsAppButton
                 phoneNumber="+5541992909011"
-                message="Olá, gostaria de saber mais sobre os serviços da tampix hits."
+                message={content.whatsappMessage}
                 variant="icon"
               >
-                +55 41 99290-9011
+                {content.phoneNumber}
               </WhatsAppButton>
             </div>
           </div>
@@ -44,7 +51,7 @@ export function Footer() {
         <div className="footer__section footer__section--middle">
           <div className="footer__middle">
             <div className="social__media">
-              Redes Sociais
+              {content.socialMediaLabel}
               <div className="social__media__logos">
                 <div className="footer__social-media">
                   <Facebook
@@ -87,18 +94,18 @@ export function Footer() {
       </div>
 
       <div className="developer__section">
-        Desenvolvido por Bernardo Giraldi Andreatta <br />
+        {content.developerLabel} <br />
         <button 
-          onClick={() => copyText("bernardo.giraldi.andreatta@gmail.com")}
+          onClick={() => copyText(content.developerEmail)}
           className="email-button"
         >
-          bernardo.giraldi.andreatta@gmail.com
+          {content.developerEmail}
         </button>
       </div>
 
       {showToast && (
         <div className="toast">
-          Copiado para área de transferência
+          {content.toastMessage}
         </div>
       )}
 

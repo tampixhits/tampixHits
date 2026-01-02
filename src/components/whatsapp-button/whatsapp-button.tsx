@@ -38,7 +38,7 @@ const WhatsAppButton = ({
           {children}
         </>
       ) : (
-        children || "Fale agora por Whatsapp"
+        children
       )}
     </a>
   );

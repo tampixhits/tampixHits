@@ -4,8 +4,14 @@ import { sanityClient } from "@/sanityClient";
 
 interface videoDestaqueData {
   titulo: string;
+  tituloIngles: string;
   link: string;
 }
+
+const getSystemLanguage = (): 'pt' | 'en' => {
+  const language = navigator.language.toLowerCase();
+  return language.startsWith('pt') ? 'pt' : 'en';
+};
 
 // Extract YouTube video ID from various URL formats
 function getYouTubeVideoId(url: string): string | null {
@@ -65,10 +71,13 @@ export function VideoDestaque() {
     return <div>URL de vídeo inválida</div>;
   }
 
+  const language = getSystemLanguage();
+  const title = language === 'pt' ? data.titulo : data.tituloIngles;
+
   return (
     <section id="video-destaque" className="video-destaque">
       <div className="video-destaque__container">
-        <h1>{data.titulo}</h1>
+        <h1>{title}</h1>
         <div className="video-destaque__wrapper">
           <iframe
             src={`https://www.youtube.com/embed/${videoId}`}

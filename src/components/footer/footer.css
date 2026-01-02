@@ -105,10 +105,14 @@
   color: inherit;
   font: inherit;
   cursor: pointer;
-  text-decoration: underline;
   padding: 0;
   margin: 0;
   text-align: left;
+  transition: color ease 0.3s;
+}
+
+.email-button:hover{
+  color: var(--active-color, #0d80bf);
 }
 
 /* Toast notification */

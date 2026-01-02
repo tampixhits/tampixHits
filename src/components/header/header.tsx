@@ -1,9 +1,16 @@
 import "./header.css";
 import { Logo, Facebook, Instagram, Youtube, Spotify } from "@/assets/logos";
 import { useState } from "react";
+import { headerContent } from "./header.content";
+
+const getSystemLanguage = (): 'pt' | 'en' => {
+  const language = navigator.language.toLowerCase();
+  return language.startsWith('pt') ? 'pt' : 'en';
+};
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const content = headerContent[getSystemLanguage()];
 
   function scrollToSection(section: string) {
     const sectionElement = document.getElementById(section);
@@ -44,7 +51,7 @@ export function Header() {
 
       <button
         className="menu-toggle"
-        aria-label="Abrir menu"
+        aria-label={content.menuLabel}
         aria-expanded={menuOpen}
         onClick={() => setMenuOpen(!menuOpen)}
       >
@@ -52,15 +59,15 @@ export function Header() {
       </button>
 
       <nav className={`nav ${menuOpen ? "open" : ""}`}>
-        <button className="nav-link" onClick={() => scrollToSection('sobre-nos')}>Quem Somos</button>
-        <button className="nav-link" onClick={() => scrollToSection('eventos')}>Música Para Eventos</button>
-        <button className="nav-link">Vídeos</button>
-        <button className="nav-link">Shows Especiais</button>
-        <button className="nav-link">Som, Luz e DJ</button>
+        <button className="nav-link" onClick={() => scrollToSection('sobre-nos')}>{content.navLinks.quemSomos}</button>
+        <button className="nav-link" onClick={() => scrollToSection('eventos')}>{content.navLinks.musica}</button>
+        <button className="nav-link" onClick={() => scrollToSection('videos')}>{content.navLinks.videos}</button>
+        {/* <button className="nav-link">{content.navLinks.shows}</button> */}
+        <button className="nav-link" onClick={() => scrollToSection('som-luz')}>{content.navLinks.som}</button>
       </nav>
 
       <div className="contact">
-        <button className="budget">Faça um orçamento</button>
+        <button className="budget">{content.budget}</button>
         <div className="social-media">
           <Facebook className="social-media-logo" onClick={() => window.open("https://www.facebook.com/guilhermeandreatta.musico/videos/clique-aqui-para-iniciar-o-atendimento/849864734167693/")}/>
           <Instagram className="social-media-logo" onClick={() => window.open("https://www.instagram.com/tampixhits/")}/>
