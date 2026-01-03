@@ -16,6 +16,7 @@ export function SoundLight() {
         <div className="sound-light__text">
           <h1>{content.title}</h1>
           <p className="sound-light__description">{content.description}</p>
+          
           <WhatsAppButton
             phoneNumber="+5541992909011"
             message={content.whatsappMessage}

@@ -24,6 +24,20 @@
   border: none;
   font-size: 2rem;
   cursor: pointer;
+  color: var(--text-color, #333);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  transition: color 0.2s ease;
+}
+
+.menu-toggle.tapped {
+  color: var(--active-color, #0d80bf);
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--active-color, #0d80bf);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .nav {
@@ -41,16 +55,29 @@
   font-size: 1.25rem;
   color: var(--text-color, #333);
   cursor: pointer;
-  transition: color 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
-.nav-link:hover {
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover {
+    color: var(--active-color, #0d80bf);
+    transition: color 0.2s ease;
+  }
+}
+
+.nav-link:active {
+  color: var(--active-color, #0d80bf);
+}
+
+.nav-link.tapped {
   color: var(--active-color, #0d80bf);
 }
 
 .nav-link:focus-visible {
   outline: none;
   text-decoration: underline;
+  color: var(--active-color, #0d80bf);
 }
 
 .contact {
@@ -68,11 +95,30 @@
   cursor: pointer;
   background-color: #242424;
   color: white;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* <- fix */
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
-.budget:hover {
+@media (hover: hover) and (pointer: fine) {
+  .budget:hover {
+    background-color: var(--active-color, #0d80bf);
+  }
+}
+
+.budget:active {
+  transform: scale(0.95);
   background-color: var(--active-color, #0d80bf);
+}
+
+.budget.tapped {
+  transform: scale(0.95);
+  background-color: var(--active-color, #0d80bf);
+}
+
+.budget:focus-visible {
+  outline: 3px solid var(--active-color, #0d80bf);
+  outline-offset: 2px;
 }
 
 .social-media {
@@ -80,16 +126,49 @@
   gap: 1.5rem;
 }
 
+.social-media-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
 .social-media-logo {
   width: clamp(20px, 4vw, 28px);
   height: auto;
   flex-shrink: 0;
   color: var(--text-color, #333);
-  transition: color 0.3s ease, transform 0.2s ease;
+  transition: all 0.2s ease;
+  pointer-events: none;
 }
 
-.social-media-logo:hover {
+@media (hover: hover) and (pointer: fine) {
+  .social-media-button:hover .social-media-logo {
+    color: var(--active-color, #0d80bf);
+    transform: scale(1.1);
+  }
+}
+
+.social-media-button:active .social-media-logo {
   color: var(--active-color, #0d80bf);
+  transform: scale(0.9);
+}
+
+.social-media-button.tapped .social-media-logo {
+  color: var(--active-color, #0d80bf);
+  transform: scale(0.9);
+}
+
+.social-media-button:focus-visible {
+  outline: 2px solid var(--active-color, #0d80bf);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .nav-contact {
@@ -161,6 +240,10 @@
     display: flex;
     justify-content: center;
     gap: 25px;
+  }
+
+  .social-media-logo{
+      width: clamp(20px, 10vw, 28px);
   }
 
   .contact {

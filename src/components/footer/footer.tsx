@@ -13,15 +13,17 @@ export function Footer() {
   const [showToast, setShowToast] = useState(false);
   const content = footerContent[getSystemLanguage()];
 
+  const handleTap = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const button = e.currentTarget;
+    button.classList.add('tapped');
+    setTimeout(() => button.classList.remove('tapped'), 200);
+  };
+
   const copyText = async (textToCopy: string) => {
-    let usedFallback = false;
     try {
       if (navigator.clipboard && window.isSecureContext) {
         await navigator.clipboard.writeText(textToCopy);
-        setShowToast(true);
-        setTimeout(() => setShowToast(false), 2000);
       } else {
-        usedFallback = true;
         const textArea = document.createElement('textarea');
         textArea.value = textToCopy;
         textArea.style.position = 'fixed';
@@ -33,6 +35,8 @@ export function Footer() {
         document.execCommand('copy');
         textArea.remove();
       }
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 2000);
     } catch (err) {
       console.error('Failed to copy text: ', err);
     }
@@ -46,7 +50,10 @@ export function Footer() {
           <div className="footer__contacts">
             {content.name} <br />
             <button 
-              onClick={() => copyText(content.email)}
+              onClick={(e) => {
+                handleTap(e);
+                copyText(content.email);
+              }}
               className="email-button"
             >
               {content.email}
@@ -69,34 +76,50 @@ export function Footer() {
               {content.socialMediaLabel}
               <div className="social__media__logos">
                 <div className="footer__social-media">
-                  <Facebook
-                    className="footer__social-media-logo"
-                    onClick={() =>
+                  <button
+                    className="social-media-button"
+                    onClick={(e) => {
+                      handleTap(e);
                       window.open(
                         "https://www.facebook.com/guilhermeandreatta.musico/videos/clique-aqui-para-iniciar-o-atendimento/849864734167693/"
-                      )
-                    }
-                  />
-                  <Instagram
-                    className="footer__social-media-logo"
-                    onClick={() =>
-                      window.open("https://www.instagram.com/tampixhits/")
-                    }
-                  />
-                  <Youtube
-                    className="footer__social-media-logo"
-                    onClick={() =>
-                      window.open("https://www.youtube.com/@guiandreatta")
-                    }
-                  />
-                  <Spotify
-                    className="footer__social-media-logo"
-                    onClick={() =>
+                      );
+                    }}
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="footer__social-media-logo" />
+                  </button>
+                  <button
+                    className="social-media-button"
+                    onClick={(e) => {
+                      handleTap(e);
+                      window.open("https://www.instagram.com/tampixhits/");
+                    }}
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="footer__social-media-logo" />
+                  </button>
+                  <button
+                    className="social-media-button"
+                    onClick={(e) => {
+                      handleTap(e);
+                      window.open("https://www.youtube.com/@guiandreatta");
+                    }}
+                    aria-label="Youtube"
+                  >
+                    <Youtube className="footer__social-media-logo" />
+                  </button>
+                  <button
+                    className="social-media-button"
+                    onClick={(e) => {
+                      handleTap(e);
                       window.open(
                         "https://open.spotify.com/artist/1uvgjDX1AAuConmn2zvdcO?si=90OZblWDTSWSBeYluttF6w&nd=1&dlsi=5ef9c7f152a84eca"
-                      )
-                    }
-                  />
+                      );
+                    }}
+                    aria-label="Spotify"
+                  >
+                    <Spotify className="footer__social-media-logo" />
+                  </button>
                 </div>
               </div>
             </div>
@@ -111,7 +134,10 @@ export function Footer() {
       <div className="developer__section">
         {content.developerLabel} <br />
         <button 
-          onClick={() => copyText(content.developerEmail)}
+          onClick={(e) => {
+            handleTap(e);
+            copyText(content.developerEmail);
+          }}
           className="email-button"
         >
           {content.developerEmail}

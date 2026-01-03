@@ -69,17 +69,50 @@
   justify-content: center;
 }
 
+.social-media-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
 .footer__social-media-logo {
   width: clamp(20px, 4vw, 28px);
   height: auto;
   flex-shrink: 0;
   color: var(--text-color, #333);
-  transition: color 0.3s ease, transform 0.2s ease;
-  cursor: pointer;
+  transition: all 0.2s ease;
+  pointer-events: none;
 }
 
-.footer__social-media-logo:hover {
+@media (hover: hover) and (pointer: fine) {
+  .social-media-button:hover .footer__social-media-logo {
+    color: var(--active-color, #0d80bf);
+    transform: scale(1.1);
+  }
+}
+
+.social-media-button:active .footer__social-media-logo {
+  color: var(--active-color, #0d80bf) !important;
+  transform: scale(0.9);
+}
+
+.social-media-button.tapped .footer__social-media-logo {
   color: var(--active-color, #0d80bf);
+  transform: scale(0.9);
+}
+
+.social-media-button:focus-visible {
+  outline: 2px solid var(--active-color, #0d80bf);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .developer__section {
@@ -97,24 +130,41 @@
   flex: 0 0 auto;
 }
 
-/* Email copy button */
 .email-button {
   background: none;
   border: none;
-  color: inherit;
+  color: var(--text-color, #333);
   font: inherit;
   cursor: pointer;
   padding: 0;
   margin: 0;
   text-align: left;
-  transition: color ease 0.3s;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
-.email-button:hover{
+@media (hover: hover) and (pointer: fine) {
+  .email-button:hover {
+    color: var(--active-color, #0d80bf);
+    transition: color 0.2s ease;
+  }
+}
+
+.email-button:active {
+  color: var(--active-color, #0d80bf);
+  transition: none;
+}
+
+.email-button.tapped {
   color: var(--active-color, #0d80bf);
 }
 
-/* Toast notification */
+.email-button:focus-visible {
+  outline: 2px solid var(--active-color, #0d80bf);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .toast {
   position: fixed;
   bottom: 80px;
@@ -144,7 +194,6 @@
   }
 
 
-/* Mobile styles */
   .footer__wrapper {
     padding-top: 2rem;
     flex-direction: column;

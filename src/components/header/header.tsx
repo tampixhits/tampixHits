@@ -13,6 +13,12 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const content = headerContent[getSystemLanguage()];
 
+  const handleTap = (e: React.MouseEvent<HTMLElement>) => {
+    const element = e.currentTarget;
+    element.classList.add('tapped');
+    setTimeout(() => element.classList.remove('tapped'), 200);
+  };
+
   const handleNavClick = (section: string) => {
     const didScroll = scrollToSection(section);
     if (didScroll) setMenuOpen(false);
@@ -26,7 +32,10 @@ export function Header() {
         className="menu-toggle"
         aria-label={content.menuLabel}
         aria-expanded={menuOpen}
-        onClick={() => setMenuOpen(!menuOpen)}
+        onClick={(e) => {
+          handleTap(e);
+          setMenuOpen(!menuOpen);
+        }}
       >
         ☰
       </button>
@@ -39,20 +48,36 @@ export function Header() {
         
         <div className="nav-contact">
           <div className="social-media">
-            <Facebook className="social-media-logo" onClick={() => window.open("https://www.facebook.com/guilhermeandreatta.musico/videos/clique-aqui-para-iniciar-o-atendimento/849864734167693/")}/>
-            <Instagram className="social-media-logo" onClick={() => window.open("https://www.instagram.com/tampixhits/")}/>
-            <Youtube className="social-media-logo" onClick={() => window.open("https://www.youtube.com/@guiandreatta")}/>
-            <Spotify className="social-media-logo" onClick={() => window.open("https://open.spotify.com/artist/1uvgjDX1AAuConmn2zvdcO?si=90OZblWDTSWSBeYluttF6w&nd=1&dlsi=5ef9c7f152a84eca")}/>
+            <button className="social-media-button" onClick={(e) => { handleTap(e); window.open("https://www.facebook.com/guilhermeandreatta.musico/videos/clique-aqui-para-iniciar-o-atendimento/849864734167693/"); }} aria-label="Facebook">
+              <Facebook className="social-media-logo" />
+            </button>
+            <button className="social-media-button" onClick={(e) => { handleTap(e); window.open("https://www.instagram.com/tampixhits/"); }} aria-label="Instagram">
+              <Instagram className="social-media-logo" />
+            </button>
+            <button className="social-media-button" onClick={(e) => { handleTap(e); window.open("https://www.youtube.com/@guiandreatta"); }} aria-label="Youtube">
+              <Youtube className="social-media-logo" />
+            </button>
+            <button className="social-media-button" onClick={(e) => { handleTap(e); window.open("https://open.spotify.com/artist/1uvgjDX1AAuConmn2zvdcO?si=90OZblWDTSWSBeYluttF6w&nd=1&dlsi=5ef9c7f152a84eca"); }} aria-label="Spotify">
+              <Spotify className="social-media-logo" />
+            </button>
           </div>
         </div>
       </nav>
 
       <div className="contact">
         <div className="social-media">
-          <Facebook className="social-media-logo" onClick={() => window.open("https://www.facebook.com/guilhermeandreatta.musico/videos/clique-aqui-para-iniciar-o-atendimento/849864734167693/")}/>
-          <Instagram className="social-media-logo" onClick={() => window.open("https://www.instagram.com/tampixhits/")}/>
-          <Youtube className="social-media-logo" onClick={() => window.open("https://www.youtube.com/@guiandreatta")}/>
-          <Spotify className="social-media-logo" onClick={() => window.open("https://open.spotify.com/artist/1uvgjDX1AAuConmn2zvdcO?si=90OZblWDTSWSBeYluttF6w&nd=1&dlsi=5ef9c7f152a84eca")}/>
+          <button className="social-media-button" onClick={(e) => { handleTap(e); window.open("https://www.facebook.com/guilhermeandreatta.musico/videos/clique-aqui-para-iniciar-o-atendimento/849864734167693/"); }} aria-label="Facebook">
+            <Facebook className="social-media-logo" />
+          </button>
+          <button className="social-media-button" onClick={(e) => { handleTap(e); window.open("https://www.instagram.com/tampixhits/"); }} aria-label="Instagram">
+            <Instagram className="social-media-logo" />
+          </button>
+          <button className="social-media-button" onClick={(e) => { handleTap(e); window.open("https://www.youtube.com/@guiandreatta"); }} aria-label="Youtube">
+            <Youtube className="social-media-logo" />
+          </button>
+          <button className="social-media-button" onClick={(e) => { handleTap(e); window.open("https://open.spotify.com/artist/1uvgjDX1AAuConmn2zvdcO?si=90OZblWDTSWSBeYluttF6w&nd=1&dlsi=5ef9c7f152a84eca"); }} aria-label="Spotify">
+            <Spotify className="social-media-logo" />
+          </button>
         </div>
       </div>
     </header>

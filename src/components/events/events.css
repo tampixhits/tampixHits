@@ -51,14 +51,26 @@
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease;
   margin-top: 1.5rem;
   background-color: #242424;
   color: #fff;
 }
 
-.events__button:hover {
+@media (hover: hover) and (pointer: fine) {
+  .events__button:hover {
+    background-color: var(--active-color, #0d80bf);
+  }
+}
+
+.events__button:active {
+  transform: scale(0.95);
   background-color: var(--active-color, #0d80bf);
+}
+
+.events__button:focus-visible {
+  outline: 3px solid var(--active-color, #0d80bf);
+  outline-offset: 2px;
 }
 
 @media (prefers-color-scheme: dark) {

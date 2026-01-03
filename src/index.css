@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 
-/* Text color variables: light (black) and dark (white) */
 :root {
   --text-color: #000000;
   --background-color: white;
