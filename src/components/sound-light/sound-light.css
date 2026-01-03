@@ -1,0 +1,46 @@
+.sound-light__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 5rem;
+}
+
+.sound-light__description {
+  margin-top: 0;
+}
+
+.sound-light__text {
+  padding: 2rem;
+  max-width: 40rem;
+  text-align: justify;
+}
+
+.sound-light__image {
+  width: 50rem;
+  height: auto;
+  border-radius: 0.6rem;
+
+}
+
+@media (max-width: 1024px) {
+  .sound-light__wrapper {
+    flex-direction: column;
+    padding: 0;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .sound-light__text {
+    order: 1;
+    max-width: none;
+    text-align: center;
+    padding: 0 2rem;
+  }
+
+  .sound-light__image {
+    order: 2;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+}

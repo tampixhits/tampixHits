@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import "./video-destaque.css";
+import "./featured-video.css";
 import { sanityClient } from "@/sanityClient";
 
-interface videoDestaqueData {
+interface FeaturedVideoData {
   titulo: string;
   tituloIngles: string;
   link: string;
@@ -35,26 +35,26 @@ function getYouTubeVideoId(url: string): string | null {
   return null;
 }
 
-export function VideoDestaque() {
-  const [data, setData] = useState<videoDestaqueData | null>(null);
+export function FeaturedVideo() {
+  const [data, setData] = useState<FeaturedVideoData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchVideoDestaque = async () => {
+    const fetchFeaturedVideo = async () => {
       try {
         const result = await sanityClient.fetch(
           `*[_type == "videoDestaque"][0]`
         );
         setData(result);
-        console.log("Fetched video destaque data:", result);
+        console.log("Fetched featured video data:", result);
       } catch (error) {
-        console.error("Error fetching video destaque data:", error);
+        console.error("Error fetching featured video data:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchVideoDestaque();
+    fetchFeaturedVideo();
   }, []);
 
   if (loading) {
@@ -75,15 +75,15 @@ export function VideoDestaque() {
   const title = language === 'pt' ? data.titulo : data.tituloIngles;
 
   return (
-    <section id="video-destaque" className="video-destaque">
-      <div className="video-destaque__container">
+    <section id="featured-video" className="featured-video">
+      <div className="featured-video__container">
         <h1>{title}</h1>
-        <div className="video-destaque__wrapper">
+        <div className="featured-video__wrapper">
           <iframe
             src={`https://www.youtube.com/embed/${videoId}`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            className="video-destaque__iframe"
+            className="featured-video__iframe"
           />
         </div>
       </div>

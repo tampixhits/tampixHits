@@ -1,6 +1,6 @@
 import "./overview.css";
-import image from "@/assets/imgs/guitar-classical-guitar-acoustic-guitar-electric-guitar.webp";
-import WhatsAppButton from "../whatsapp-button/whatsapp-button";
+import image from "@/assets/imgs/backgroud.jpg";
+import { scrollToSection } from "@/services/scrollToSection";
 import { overviewContent } from "./overview.content";
 
 const getSystemLanguage = (): 'pt' | 'en' => {
@@ -10,19 +10,22 @@ const getSystemLanguage = (): 'pt' | 'en' => {
 
 export function Overview() {
   const content = overviewContent[getSystemLanguage()];
+
+  const handleScrollToQuote = () => {
+    scrollToSection("quote");
+  };
+
   return (
-    <div className="wrapper-overview">
-      <div className="text-overview">
+    <div className="overview__wrapper">
+      <div className="overview__text">
+        <div className="overview__brand">TAMPIX HITS</div>
         <h1>{content.title}</h1>
-        <p className="paragraph-text">
-          {content.description}
-        </p>
-        <WhatsAppButton phoneNumber="+5541992909011" message={content.whatsappMessage}>
+        <button className="overview__button" type="button" onClick={handleScrollToQuote}>
           {content.buttonText}
-        </WhatsAppButton>
+        </button>
       </div>
 
-      <img src={image} alt={content.imageAlt} className="image" />
+      <img src={image} alt={content.imageAlt} className="overview__image" />
     </div>
   );
 }

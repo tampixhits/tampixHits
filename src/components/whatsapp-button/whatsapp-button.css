@@ -37,9 +37,43 @@
 }
 
 .whatsapp-icon__svg {
-  width: clamp(20px, 4vw, 28px);
+  width: clamp(20px, 10vw, 28px);
   height: auto;
   flex-shrink: 0;
+}
+
+.whatsapp-floating {
+  position: sticky;
+  bottom: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1.5rem;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.whatsapp-floating .whatsapp-icon {
+  pointer-events: auto;
+}
+
+.whatsapp-floating .whatsapp-icon {
+  color: white;
+  background-color: black;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.whatsapp-floating .whatsapp-icon:hover {
+  background-color:  var(--active-color, #0d80bf);
+}
+
+@media (max-width: 768px) {
+  .whatsapp-floating {
+    bottom: 2rem;
+    padding-right: 1rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,4 +81,12 @@
     background-color: white;
     color: black;
   }
+
+   .whatsapp-floating {
+    .whatsapp-icon {
+      background-color: white;
+      color: black;
+    }
+  }
+
 }

@@ -1,6 +1,6 @@
 export type Language = "pt" | "en";
 
-interface SomLuzContent {
+interface SoundLightContent {
   title: string;
   description: string;
   buttonText: string;
@@ -8,7 +8,7 @@ interface SomLuzContent {
   imageAlt: string;
 }
 
-export const somLuzContent: Record<Language, SomLuzContent> = {
+export const soundLightContent: Record<Language, SoundLightContent> = {
   pt: {
     title: "Som, Luz e DJ",
     description:

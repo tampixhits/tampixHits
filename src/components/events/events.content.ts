@@ -1,8 +1,8 @@
 export type Language = 'pt' | 'en';
 
-interface EventosContent {
+interface EventsContent {
   sectionTitle: string;
-  casamento: {
+  wedding: {
     title: string;
     paragraph1: string;
     paragraph2: string;
@@ -10,7 +10,7 @@ interface EventosContent {
     whatsappMessage: string;
     imageAlt: string;
   };
-  corporativo: {
+  corporate: {
     title: string;
     paragraph1: string;
     paragraph2: string;
@@ -18,7 +18,7 @@ interface EventosContent {
     whatsappMessage: string;
     imageAlt: string;
   };
-  particular: {
+  private: {
     title: string;
     paragraph1: string;
     paragraph2: string;
@@ -28,20 +28,20 @@ interface EventosContent {
   };
 }
 
-export const eventosContent: Record<Language, EventosContent> = {
+export const eventsContent: Record<Language, EventsContent> = {
   pt: {
     sectionTitle: 'Música para Eventos',
-    casamento: {
+    wedding: {
       title: 'Casamentos',
       paragraph1:
         'A Tampix Hits oferece excelência na execução de canções para Cerimônia, Recepção e Festa de Casamento. Personalizamos a formação musical e o repertório. Prestamos assessoria para escolha da formação musical e o repertório de acordo com o gosto dos noivos.',
       paragraph2:
         'Além da formação musical e repertório, os noivos podem escolher a voz com nosso casting de cantores e cantoras. Conheça mais de perto o nosso trabalho e marque uma reunião on-line de segunda a sexta, das 8h até às 21hs.',
-      buttonText: 'Marcar reunião agora',
+      buttonText: 'Solicitar orçamento',
       whatsappMessage: 'Olá, gostaria de saber mais sobre os serviços de música para casamentos.',
       imageAlt: 'Casamento',
     },
-    corporativo: {
+    corporate: {
       title: 'Corporativo',
       paragraph1:
         'Pode ser o aniversário da empresa, a confraternização de final de ano, uma ação promocional, congresso ou feira. Nós estamos prontos para atender qualquer tipo de demanda musical, com repertório específico para cada situação.',
@@ -51,7 +51,7 @@ export const eventosContent: Record<Language, EventosContent> = {
       whatsappMessage: 'Olá, gostaria de saber mais sobre os serviços de música para eventos corporativos.',
       imageAlt: 'Corporativo',
     },
-    particular: {
+    private: {
       title: 'Particular',
       paragraph1: 'Vai comemorar seu aniversário em casa com os amigos ou fazer aquela festa no condomínio?',
       paragraph2: 'Temos formações musicais perfeitas para este tipo de ocasião com sonorização e iluminação inclusa.',
@@ -62,17 +62,17 @@ export const eventosContent: Record<Language, EventosContent> = {
   },
   en: {
     sectionTitle: 'Music for Events',
-    casamento: {
+    wedding: {
       title: 'Weddings',
       paragraph1:
         'Tampix Hits offers excellence in performing songs for Wedding Ceremonies, Receptions, and Celebrations. We customize the musical formation and repertoire. We provide guidance on choosing the musical formation and repertoire according to the couples preferences.',
       paragraph2:
         'In addition to the musical formation and repertoire, couples can choose the vocalist from our roster of singers. Learn more about our work and schedule an online meeting Monday through Friday, from 8am to 9pm.',
-      buttonText: 'Schedule a meeting now',
+      buttonText: 'Request a Quote',
       whatsappMessage: 'Hello, I would like to know more about music services for weddings.',
       imageAlt: 'Wedding',
     },
-    corporativo: {
+    corporate: {
       title: 'Corporate',
       paragraph1:
         'Whether it is a company anniversary, year-end party, promotional action, congress, or trade show. We are ready to meet any type of musical demand, with a repertoire specific to each situation.',
@@ -82,7 +82,7 @@ export const eventosContent: Record<Language, EventosContent> = {
       whatsappMessage: 'Hello, I would like to know more about music services for corporate events.',
       imageAlt: 'Corporate',
     },
-    particular: {
+    private: {
       title: 'Private Events',
       paragraph1: 'Celebrating your birthday at home with friends or throwing a party at the condominium?',
       paragraph2: 'We have the perfect musical formations for this type of occasion with sound and lighting included.',

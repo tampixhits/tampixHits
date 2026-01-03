@@ -1,0 +1,45 @@
+
+.about-us__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0rem 5rem 0rem 5rem;
+}
+
+.about-us__image {
+  width: 50rem;
+  height: auto;
+  border-radius: 0.6rem;
+}
+
+.about-us__text {
+  padding: 2rem;
+  max-width: 40rem;
+}
+
+
+@media (max-width: 1024px) {
+  .about-us__wrapper {
+    padding: 0;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .about-us__text {
+    order: 1;
+    max-width: none;
+    text-align: justify;
+  }
+
+  .about-us__image {
+    width: 100%;
+    height: auto;
+    order: 2;
+    border-radius: 0;
+  }
+  .about-us__wrapper {
+    flex-direction: column;
+  }
+  .about-us__text {
+    padding: 0 2rem;
+  }
+}

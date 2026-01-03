@@ -1,6 +1,7 @@
 import "./header.css";
 import { Logo, Facebook, Instagram, Youtube, Spotify } from "@/assets/logos";
 import { useState } from "react";
+import { scrollToSection } from "@/services/scrollToSection";
 import { headerContent } from "./header.content";
 
 const getSystemLanguage = (): 'pt' | 'en' => {
@@ -12,38 +13,10 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const content = headerContent[getSystemLanguage()];
 
-  function scrollToSection(section: string) {
-    const sectionElement = document.getElementById(section);
-    
-    if (sectionElement) {
-      const isMobile = window.innerWidth <= 768;
-      const header = isMobile ? (document.querySelector(".header") as HTMLElement) : null;
-      const headerHeight = header ? header.offsetHeight : 0;
-      const targetPosition = sectionElement.offsetTop - headerHeight;
-      const startPosition = window.pageYOffset;
-      const distance = targetPosition - startPosition;
-      const duration = 1200; 
-      let start: number | null = null;
-
-      function animation(currentTime: number) {
-        if (start === null) start = currentTime;
-        const timeElapsed = currentTime - start;
-        const run = ease(timeElapsed, startPosition, distance, duration);
-        window.scrollTo(0, run);
-        if (timeElapsed < duration) requestAnimationFrame(animation);
-      }
-
-      function ease(t: number, b: number, c: number, d: number) {
-        t /= d / 2;
-        if (t < 1) return (c / 2) * t * t + b;
-        t--;
-        return (-c / 2) * (t * (t - 2) - 1) + b;
-      }
-
-      requestAnimationFrame(animation);
-      setMenuOpen(false);
-    }
-  }
+  const handleNavClick = (section: string) => {
+    const didScroll = scrollToSection(section);
+    if (didScroll) setMenuOpen(false);
+  };
 
   return (
     <header className="header">
@@ -59,13 +32,12 @@ export function Header() {
       </button>
 
       <nav className={`nav ${menuOpen ? "open" : ""}`}>
-        <button className="nav-link" onClick={() => scrollToSection('sobre-nos')}>{content.navLinks.quemSomos}</button>
-        <button className="nav-link" onClick={() => scrollToSection('eventos')}>{content.navLinks.musica}</button>
-        <button className="nav-link" onClick={() => scrollToSection('videos')}>{content.navLinks.videos}</button>
-        <button className="nav-link" onClick={() => scrollToSection('som-luz')}>{content.navLinks.som}</button>
+        <button className="nav-link" onClick={() => handleNavClick('about-us')}>{content.navLinks.aboutUs}</button>
+        <button className="nav-link" onClick={() => handleNavClick('events')}>{content.navLinks.musicForEvents}</button>
+        <button className="nav-link" onClick={() => handleNavClick('videos')}>{content.navLinks.videos}</button>
+        <button className="nav-link" onClick={() => handleNavClick('sound-light')}>{content.navLinks.soundLightDj}</button>
         
         <div className="nav-contact">
-          <button className="budget" onClick={() => scrollToSection('quote')}>{content.budget}</button>
           <div className="social-media">
             <Facebook className="social-media-logo" onClick={() => window.open("https://www.facebook.com/guilhermeandreatta.musico/videos/clique-aqui-para-iniciar-o-atendimento/849864734167693/")}/>
             <Instagram className="social-media-logo" onClick={() => window.open("https://www.instagram.com/tampixhits/")}/>
@@ -76,7 +48,6 @@ export function Header() {
       </nav>
 
       <div className="contact">
-        <button className="budget" onClick={() => scrollToSection('quote')}>{content.budget}</button>
         <div className="social-media">
           <Facebook className="social-media-logo" onClick={() => window.open("https://www.facebook.com/guilhermeandreatta.musico/videos/clique-aqui-para-iniciar-o-atendimento/849864734167693/")}/>
           <Instagram className="social-media-logo" onClick={() => window.open("https://www.instagram.com/tampixhits/")}/>
