@@ -37,7 +37,7 @@ export const eventsContent: Record<Language, EventsContent> = {
         'A Tampix Hits oferece excelência na execução de canções para Cerimônia, Recepção e Festa de Casamento. Personalizamos a formação musical e o repertório. Prestamos assessoria para escolha da formação musical e o repertório de acordo com o gosto dos noivos.',
       paragraph2:
         'Além da formação musical e repertório, os noivos podem escolher a voz com nosso casting de cantores e cantoras. Conheça mais de perto o nosso trabalho e marque uma reunião on-line de segunda a sexta, das 8h até às 21hs.',
-      buttonText: 'Marcar reunião agora',
+      buttonText: 'Solicitar orçamento',
       whatsappMessage: 'Olá, gostaria de saber mais sobre os serviços de música para casamentos.',
       imageAlt: 'Casamento',
     },
@@ -68,7 +68,7 @@ export const eventsContent: Record<Language, EventsContent> = {
         'Tampix Hits offers excellence in performing songs for Wedding Ceremonies, Receptions, and Celebrations. We customize the musical formation and repertoire. We provide guidance on choosing the musical formation and repertoire according to the couples preferences.',
       paragraph2:
         'In addition to the musical formation and repertoire, couples can choose the vocalist from our roster of singers. Learn more about our work and schedule an online meeting Monday through Friday, from 8am to 9pm.',
-      buttonText: 'Schedule a meeting now',
+      buttonText: 'Request a Quote',
       whatsappMessage: 'Hello, I would like to know more about music services for weddings.',
       imageAlt: 'Wedding',
     },

@@ -83,7 +83,6 @@ export function VideoGrid() {
 
           return (
             <div key={video._id} className="video-grid__item">
-              <h3 className="video-grid__title">{getVideoTitle(video)}</h3>
               <div className="video-grid__wrapper">
                 <iframe
                   src={`https://www.youtube.com/embed/${videoId}`}
@@ -93,6 +92,7 @@ export function VideoGrid() {
                   title={getVideoTitle(video)}
                 />
               </div>
+              <h3 className="video-grid__title">{getVideoTitle(video)}</h3>
             </div>
           );
         })}

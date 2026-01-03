@@ -2,3 +2,9 @@
   background-color: var(--background-color);
   padding-bottom: 2rem;
 }
+
+.home__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}

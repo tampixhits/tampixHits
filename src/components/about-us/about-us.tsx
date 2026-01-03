@@ -16,9 +16,7 @@ export function AboutUs() {
 
         <div className="about-us__text">
           <h1>{content.title}</h1>
-          <p>
-            {content.description}
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: content.description }} />
         </div>
       </div>
     </section>
