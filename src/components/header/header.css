@@ -1,26 +1,22 @@
-/* =========================
-   HEADER BASE (DESKTOP)
-========================= */
-
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 5rem;
+  padding: 0rem 5rem;
   gap: 2rem;
-  background: white;
+  background: var(--background-color, #ffffff);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-/* LOGO */
 .logo {
-  width: clamp(120px, 15vw, 200px);
+  width: clamp(120px, 10vw, 200px);
   height: auto;
   flex-shrink: 0;
 }
-
-/* =========================
-   MENU TOGGLE (HAMBURGER)
-========================= */
 
 .menu-toggle {
   display: none !important;
@@ -30,16 +26,9 @@
   cursor: pointer;
 }
 
-/* =========================
-   NAVIGATION (DESKTOP)
-========================= */
-
 .nav {
   display: flex;
-  gap: 1.5rem;
-  transform: none;
-
-  transform: none;
+  gap: 2rem;
   visibility: visible;
   pointer-events: auto;
 }
@@ -56,17 +45,13 @@
 }
 
 .nav-link:hover {
-  color: var(--active-color, #0D80BF);
+  color: var(--active-color, #0d80bf);
 }
 
 .nav-link:focus-visible {
   outline: none;
   text-decoration: underline;
 }
-
-/* =========================
-   CONTACT AREA
-========================= */
 
 .contact {
   display: flex;
@@ -84,17 +69,15 @@
   background-color: #242424;
   color: white;
   transition: background-color 0.3s ease, transform 0.2s ease; /* <- fix */
-
 }
 
-.budget:hover{
-    background-color: var(--active-color, #0D80BF);
-
+.budget:hover {
+  background-color: var(--active-color, #0d80bf);
 }
 
 .social-media {
   display: flex;
-  gap: 0.75rem;
+  gap: 1.5rem;
 }
 
 .social-media-logo {
@@ -106,53 +89,29 @@
 }
 
 .social-media-logo:hover {
-  color: var(--active-color, #0D80BF);
+  color: var(--active-color, #0d80bf);
 }
 
-/* =========================
-   TABLET (links quebram linha)
-========================= */
+.nav-contact {
+  display: none;
+}
 
 @media (max-width: 1024px) {
-  .nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 0.75rem;
-  }
-
-  .nav-link {
-    font-size: 1rem;
-  }
-
-  .budget {
-    font-size: 1rem;
-  }
-}
-
-/* =========================
-   MOBILE (menu overlay top-down)
-========================= */
-
-@media (max-width: 768px) {
   .header {
     position: relative;
     z-index: 1000;
-    background: white;
+    background: var(--background-color);
     padding: 1rem;
-  }
-
-  .menu-toggle {
-    display: block !important;
-    z-index: 1001;
+    position: sticky;
+    top: 0;
   }
 
   .nav {
     position: absolute;
     top: 100%;
     left: 0;
-
     width: 100%;
-    background: white;
+    background: var(--background-color);
 
     display: flex;
     flex-direction: column;
@@ -169,6 +128,11 @@
     transition: transform 0.35s ease, opacity 0.25s ease;
   }
 
+  .menu-toggle {
+    display: block !important;
+    z-index: 1001;
+  }
+
   .nav.open {
     transform: scaleY(1);
     pointer-events: auto;
@@ -181,16 +145,36 @@
     text-align: left;
   }
 
+  .nav-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+  }
+
+  .nav-contact .social-media {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+  }
+
   .contact {
     display: none;
   }
 }
 
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  .header {
     --text-color: #f0f0f0;
-    --active-color: #0D80BF;
-    --background-color: #242424;
+    --active-color: #0d80bf;
+    --background-color: #1e1e1e;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   }
 
   .logo {
@@ -205,11 +189,11 @@
     background: var(--background-color);
   }
 
-  .menu-toggle{
+  .menu-toggle {
     color: white;
   }
 
-  .budget{
+  .budget {
     background-color: white;
     color: #242424;
   }

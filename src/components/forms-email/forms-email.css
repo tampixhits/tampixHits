@@ -1,0 +1,278 @@
+.forms-email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background-color: var(--background-color, white);
+  min-height: 100vh;
+}
+
+.forms-email h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.forms-email__description {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.forms-email__container {
+  background-color: var(--background-color, white);
+  border-radius: 12px;
+  padding: 3rem;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Indicators */
+.forms-email__progress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.forms-email__progress::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ddd;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.forms-email__step-indicator {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #999;
+  background-color: var(--background-color, white);
+  position: relative;
+  z-index: 1;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.forms-email__step-indicator.active {
+  background-color: var(--active-color, #0D80BF);
+  color: white;
+  border-color: var(--active-color, #0D80BF);
+}
+
+.forms-email__step-indicator.completed {
+  background-color: var(--active-color, #0D80BF);
+  color: white;
+  border-color: var(--active-color, #0D80BF);
+}
+
+/* Form Steps */
+.forms-email__step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.forms-email__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.forms-email__field label {
+  font-weight: 500;
+  color: var(--text-color, #333);
+  font-size: 0.95rem;
+}
+
+.forms-email__field input,
+.forms-email__field select,
+.forms-email__field textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+  background-color: var(--background-color, white);
+  color: var(--text-color, #333);
+}
+
+.forms-email__field input:focus,
+.forms-email__field select:focus,
+.forms-email__field textarea:focus {
+  outline: none;
+  border-color: var(--active-color, #0D80BF);
+  box-shadow: 0 0 0 3px rgba(13, 128, 191, 0.1);
+}
+
+.forms-email__field input.error,
+.forms-email__field select.error,
+.forms-email__field textarea.error {
+  border-color: #e74c3c;
+}
+
+.forms-email__field input.error:focus,
+.forms-email__field select.error:focus,
+.forms-email__field textarea.error:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.forms-email__error {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.forms-email__field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.forms-email__field select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 20px;
+  padding-right: 2.5rem;
+}
+
+/* Buttons */
+.forms-email__buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.forms-email__button {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.forms-email__button--next,
+.forms-email__button--submit {
+  background-color: var(--active-color, #0D80BF);
+  color: white;
+  flex: 1;
+}
+
+.forms-email__button--next:hover,
+.forms-email__button--submit:hover {
+  background-color: #0a6a9f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(13, 128, 191, 0.3);
+}
+
+.forms-email__button--next:disabled,
+.forms-email__button--submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.forms-email__button--previous {
+  background-color: var(--active-color, #0D80BF);
+  color: white;
+  flex: 1;
+}
+
+.forms-email__button--previous:hover {
+  background-color: #0a6a9f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(13, 128, 191, 0.3);
+}
+
+/* Only show Próximo button on step 1 */
+.forms-email__step:has(.forms-email__button--next:only-of-type) .forms-email__button--next {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .forms-email {
+    padding: 1.5rem 1rem;
+  }
+
+  .forms-email h1 {
+    font-size: 1.5rem;
+  }
+
+  .forms-email__container {
+    padding: 2rem;
+  }
+
+  .forms-email__step-indicator {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+
+  .forms-email__buttons {
+    gap: 0.75rem;
+  }
+
+  .forms-email__button {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .forms-email__field input,
+  .forms-email__field select,
+  .forms-email__field textarea {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .forms-email__container {
+    padding: 1.5rem;
+  }
+
+  .forms-email__progress {
+    margin-bottom: 2rem;
+  }
+
+  .forms-email__step {
+    gap: 1.25rem;
+  }
+
+  .forms-email__buttons {
+    flex-direction: column;
+  }
+
+  .forms-email__button {
+    width: 100%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .forms-email__container  {
+    background-color: #1e1e1e;
+  }
+}
