@@ -79,6 +79,17 @@ export function FormsEmail() {
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  
+  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as
+    | string
+    | undefined;
+  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as
+    | string
+    | undefined;
+  const EMAILJS_USER_ID = import.meta.env.VITE_EMAILJS_USER_ID as
+    | string
+    | undefined;
+
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -159,6 +170,15 @@ Observações:
 ${formData.observations || "N/A"}
       `.trim();
 
+      if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_USER_ID) {
+        console.error("EmailJS environment variables are missing.");
+        alert(
+          "Email service not configured. Please set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID and VITE_EMAILJS_USER_ID in your .env file."
+        );
+        setIsSubmitting(false);
+        return;
+      }
+
       const response = await fetch(
         "https://api.emailjs.com/api/v1.0/email/send",
         {
@@ -167,9 +187,9 @@ ${formData.observations || "N/A"}
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            service_id: "service_0zq0qus",
-            template_id: "template_w0oq72s",
-            user_id: "Yys9SxJ6OIKMpkSgG",
+            service_id: 'service_bnkzksh',
+            template_id: 'template_0tdqw2h',
+            user_id: 'TVkSnHj3VfXPw8hT7',
             template_params: {
               from_name: formData.name,
               instagram: formData.instagram || "N/A",
@@ -187,7 +207,6 @@ ${formData.observations || "N/A"}
       );
 
       if (response.ok) {
-        // Success - show confirmation and reset
         alert(content.successMessage || "Orçamento enviado com sucesso!");
         setFormData({
           name: "",

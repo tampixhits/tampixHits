@@ -35,8 +35,11 @@ export function Footer() {
         document.execCommand('copy');
         textArea.remove();
       }
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 2000);
+      // Only show custom toast on desktop (viewport width > 768px)
+      if (window.innerWidth > 768) {
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 2000);
+      }
     } catch (err) {
       console.error('Failed to copy text: ', err);
     }
